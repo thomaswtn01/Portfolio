@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import './App.css';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import SplitType from 'split-type';
 import backgroundVideo2 from './assets/fond_video3.mp4';
@@ -11,7 +10,7 @@ import backgroundVideo3 from './assets/fond_video1.mp4'
 import image1 from './assets/thumb1.png';
 import image2 from './assets/thumb2.png';
 import image3 from './assets/thumb3.png'
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin( ScrollToPlugin);
 
 
 
