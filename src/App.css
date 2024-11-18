@@ -1,38 +1,266 @@
+/* App.css */
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  overflow: hidden;
+
+}
+
+.nav-thumbnails {
+  position: fixed;
+  right: 30px; /* Adjust as needed */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between thumbnails */
+  z-index: 1000; /* Ensure they are above other elements */
+}
+
+.nav-thumbnails img {
+  width: 0px; /* Adjust thumbnail size */
+  cursor: pointer;
+  transition: transform 0.3s; /* Animation on hover */
+}
+
+.nav-thumbnails img:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+.thumbnail.active {
+  border: 0px solid #ffffff;  /* Rouge ou la couleur de votre choix */
+  transform: scale(1.1); /* Légèrement agrandir l'image pour un effet dynamique */
+}
+
+#video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajuste pour couvrir toute la page */
+  z-index: -1; /* Place la vidéo derrière le contenu */
+}
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  text-align: center; /* Centre le texte dans le conteneur */
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.top-nav {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-item {
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column; /* Aligne les éléments en colonne */
+  gap: 10px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-style: italic;
+}
+
+.nav-links a:hover {
+  color: #010101; /* Changement de couleur au survol */
+}
+
+
+.nav-links a.active {
+  font-weight: bold; /* Met le texte en gras */
+  font-size: 1.4rem; /* Augmente la taille de la police */
+  color: white; /* Assure que le texte reste blanc */
+}
+
+.nav-links a.active::before {
+  content: ""; /* Crée un pseudo-élément */
+  display: inline-block; /* Affiche-le comme un bloc en ligne */
+  width: 10px; /* Largeur du carré */
+  height: 10px; /* Hauteur du carré */
+  background-color: white; /* Couleur du carré */
+  margin-right: 8px; /* Espace entre le carré et le texte */
+  border-radius: 2px; /* Arrondir légèrement les coins du carré */
+}
+
+
+
+.footer-links {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  color: white;
+  font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ddd;
+}
+
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px 0 0; /* Ajustement pour qu'il soit collé au texte */
+}
+.availability {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+}
+.page {
+  height: 100vh; /* Ensure each section takes the full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.page.active {
+  opacity: 1; /* Visibilité quand actif */
+}
+
+
+
+
+.page h2 {
+  font-size: 5rem; /* Taille du nom */
+  color: #ffffff;
+  margin: 0; /* Supprime les marges */
+  letter-spacing: -10px;
+  position: absolute;
+  top: 12%;
+  left: 0;
+  padding: 20px; /* Optionnel : pour ajouter un peu d'espace entre le texte et les bords */
+}
+
+.App-header h1 {
+  font-size: 10rem; /* Taille du nom */
+  color: #ffffff;
+  margin: 0; /* Supprime les marges */
+  letter-spacing: -10px;
+}
+.experience-content {
+  max-height: 60vh;
+  padding: 2rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-sections {
+  display: flex;
+  gap:9rem; /* Espace entre les deux sections */
+  width: 100%;
+}
+
+.experience-section {
+  flex: 1; /* Permet à chaque section de prendre la moitié de la largeur */
+  margin-bottom: 1rem;
+}
+
+.experience-section h3 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.experience-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.experience-item h4 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.experience-item p {
+  margin: 0.2rem 0;
+  color: #ddd;
+}
+
+.skills-section {
+  display: grid;
+  margin-top: 13%;
+  margin-right: 10%;
+  text-align: center;
+  width: 90%; /* S'assure que la section prend toute la largeur */
+
+}
+
+.skills-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajusté pour une largeur minimale de 150px */
+  gap: 40px;
+  padding: 10px 10%;
+}
+
+.skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  transition: transform 0.3s;
+}
+
+.skill-item img {
+  max-width: 120px; /* Ajuste la taille des icônes */
+  margin-bottom: 10px;
+}
+
+.skill-item p {
+  margin: 0;
+  font-size: 20px; /* Taille du texte des légendes */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.skill-item:hover {
+  transform: translateY(-10px);
 }
